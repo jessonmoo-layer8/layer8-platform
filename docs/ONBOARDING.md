@@ -41,4 +41,4 @@ graph LR
     SMOLAGENT --> Babysitter
     Babysitter --> Browser
   end
-```
+

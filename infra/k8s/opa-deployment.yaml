@@ -27,4 +27,4 @@ spec:
       volumes:
         - name: policies
           configMap:
-            name: opa-policies
+

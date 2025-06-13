@@ -77,4 +77,4 @@ Example shell deploy script: `infra/ci-cd/deploy.sh`.
 
 Layer 8 bundles the costs of paid integrations (for example, commercial compliance feeds or advanced IDP connectors) into the main product subscription. Individual deployments do not need their own separate subscriptions. These integrations can be toggled through your **Layer 8** account and are enabled as part of enhanced functionality tiers.
 
-Contact your Layer 8 representative to upgrade tiers or to see a breakdown of centralized subscription costs.
+

@@ -16,4 +16,4 @@ spec:
         - name: frontend
           image: layer8-frontend:latest
           ports:
-            - containerPort: 3000
+

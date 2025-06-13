@@ -13,4 +13,4 @@ Set `COMPLIANCE_PLUGIN` to select a compliance feed. Open options include `nist`
 
 ## Deployment Overview
 
-See `DEPLOYMENT.md` for Docker, Kubernetes, and Terraform instructions. A CI/CD pipeline is provided in `infra/ci-cd/github-actions.yaml`. The repository is designed for easy GitHub uploads with branch protection and secrets configured in the Actions environment.
+

@@ -20,4 +20,4 @@
 
 ## Errors
 
-- Standard HTTP status codes.
+

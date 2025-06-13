@@ -22,4 +22,4 @@ spec:
               value: "production"
           envFrom:
             - secretRef:
-                name: layer8-secrets
+
