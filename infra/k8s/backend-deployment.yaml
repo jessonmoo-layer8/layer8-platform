@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: layer8-backend
+spec:
+  replicas: 3 # scale out for production load
+  selector:
+    matchLabels:
+      app: layer8-backend
+  template:
+    metadata:
+      labels:
+        app: layer8-backend
+    spec:
+      containers:
+        - name: backend
+          image: layer8-backend:latest
+          ports:
+            - containerPort: 4000
+          env:
+            - name: NODE_ENV
+              value: "production"
+          envFrom:
+            - secretRef:
+                name: layer8-secrets

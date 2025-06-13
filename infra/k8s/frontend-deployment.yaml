@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: layer8-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: layer8-frontend
+  template:
+    metadata:
+      labels:
+        app: layer8-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: layer8-frontend:latest
+          ports:
+            - containerPort: 3000

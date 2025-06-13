@@ -1,0 +1,11 @@
+FROM node:20-alpine
+
+WORKDIR /app
+COPY ../backend ./backend
+COPY ../package.json ./
+
+RUN cd backend && npm install --production
+
+EXPOSE 4000
+CMD ["node", "backend/api/index.js"]
+ENV NODE_ENV=production

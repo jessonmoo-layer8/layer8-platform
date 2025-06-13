@@ -1,0 +1,6 @@
+{
+  "controls": [
+    {"id": "AC-1", "title": "Access Control Policy", "family": "AC", "published": "2023-01-01"},
+    {"id": "AC-2", "title": "Account Management", "family": "AC", "published": "2023-01-01"}
+  ]
+}
