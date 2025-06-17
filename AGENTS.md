@@ -35,6 +35,14 @@ Layer 8 is architected as a multi-agent orchestration platform with a **strict s
 - Interact with browsers, APIs, or systems
 - Write to production systems
 
+### Development Activities
+These strict limitations apply once the platform is deployed for end users.
+During development, human team members may manually push code to GitHub or test
+APIs using their own credentials. Such work happens outside the Babysitter AI
+execution layer and does **not** grant execution privileges to planning agents
+or plug-ins.
+Team members may configure Git credentials (e.g., PAT or SSH keys) locally or via CI secret stores to sync with GitHub. These credentials are used solely for manual or CI-driven tasks and must never be exposed to planning agents. Only Babysitter AI may utilize stored secrets for automated execution.
+
 ---
 
 ## Agent Roles
