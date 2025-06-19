@@ -7,6 +7,7 @@
     "frontend"
   ],
   "scripts": {
+    "pretest": "npm_config_loglevel=error bash -c 'if [ -f package-lock.json ]; then npm ci --include-workspace-root || npm install --include-workspace-root; else npm install --include-workspace-root; fi'",
     "test": "npm run test --workspaces && SKIP_BROWSER=true npx jest",
     "start": "cd backend && node api/index.js"
   }

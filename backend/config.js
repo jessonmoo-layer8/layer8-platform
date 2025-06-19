@@ -14,4 +14,11 @@ module.exports = {
   IDP_INTROSPECTION_URL: process.env.IDP_INTROSPECTION_URL,
   IDP_CLIENT_ID: process.env.IDP_CLIENT_ID,
   IDP_CLIENT_SECRET: process.env.IDP_CLIENT_SECRET,
+  IDP_PROVIDER: process.env.IDP_PROVIDER,
+  OKTA_ISSUER: process.env.OKTA_ISSUER,
+  OKTA_CLIENT_ID: process.env.OKTA_CLIENT_ID,
+  OKTA_CLIENT_SECRET: process.env.OKTA_CLIENT_SECRET,
+  AZURE_TENANT: process.env.AZURE_TENANT,
+  VAULT_ADDR: process.env.VAULT_ADDR,
+  VAULT_TOKEN: process.env.VAULT_TOKEN,
 };

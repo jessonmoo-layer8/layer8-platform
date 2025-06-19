@@ -12,7 +12,7 @@ describe('API Integration', () => {
 
   it('should POST a compliant task and succeed', async () => {
     const task = { app: 'Gmail', appUrl: 'https://mail.google.com' };
-    const userContext = { username: 'test', role: 'user', password: 'testpass' };
+    const userContext = { username: 'test', role: 'user', password: 'testpass', permissions: ['use_gmail'] };
     const res = await request(app)
       .post('/api/tasks')
       .set('Authorization', 'Bearer devtoken')
@@ -23,7 +23,7 @@ describe('API Integration', () => {
 
   it('should block a non-compliant task', async () => {
     const task = { app: 'Gmail', appUrl: 'https://mail.google.com' };
-    const userContext = { username: 'test', role: 'guest', password: 'testpass' };
+    const userContext = { username: 'test', role: 'guest', password: 'testpass', permissions: ['use_gmail'] };
     const res = await request(app)
       .post('/api/tasks')
       .set('Authorization', 'Bearer devtoken')

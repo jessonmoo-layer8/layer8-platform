@@ -2,10 +2,12 @@ const express = require('express');
 const Babysitter = require('../agents/babysitter');
 const SmolAgent = require('../agents/smolagent');
 const { validateCompliance } = require('../compliance/scorecard');
+const CrossAppOrchestrator = require('../orchestration/crossapp');
 const { logAudit } = require('../audit/logger');
 const { insertTask, getTasks } = require('../db');
 const { getAllowedModels, setAllowedModels } = require('../models');
 const router = express.Router();
+const orchestrator = new CrossAppOrchestrator();
 
 // Submit a new task
 router.post('/tasks', async (req, res, next) => {
@@ -15,9 +17,11 @@ router.post('/tasks', async (req, res, next) => {
     const plan = await SmolAgent.produceFinalPlan(task, userContext);
     // 2. Validate compliance
     const complianceResult = await validateCompliance(plan, userContext);
-    // 3. Execute if compliant
+    // 3. Enhance plan for cross-app execution
+    let enhancedPlan = plan;
     if (complianceResult.compliant) {
-      const execResult = await Babysitter.execute(plan, userContext);
+      enhancedPlan = await orchestrator.prepareExecution(plan, userContext);
+      const execResult = await Babysitter.execute(enhancedPlan, userContext);
       await logAudit('TASK_EXECUTED', { plan, execResult, userContext });
       await insertTask(task, userContext, 'completed', execResult);
       return res.json({ status: 'success', execResult });
